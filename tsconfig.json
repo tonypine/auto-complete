@@ -3,6 +3,9 @@
     "baseUrl": "./src",
     "target": "ESNext",
     "useDefineForClassFields": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "alwaysStrict": true,
     "lib": [
       "DOM",
       "DOM.Iterable",
@@ -20,6 +23,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx"
+
   },
   "include": [
     "src"

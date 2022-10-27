@@ -21,9 +21,20 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:import/typescript',
     'prettier',
+    'plugin:prettier/recommended',
   ],
-  plugins: ['@typescript-eslint/eslint-plugin'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'prettier'],
   rules: {
+    '@next/next/no-html-link-for-pages': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'default-case': 0,
+    'func-style': [
+      2,
+      'expression',
+      {
+        allowArrowFunctions: true,
+      },
+    ],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -34,19 +45,14 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
-    'no-restricted-exports': 0,
-    'object-curly-newline': 0,
-    quotes: ['error', 'single', { allowTemplateLiterals: false }],
-    'react/jsx-key': 'off',
-    'react/jsx-props-no-spreading': 1,
-    'react/react-in-jsx-scope': 'off',
-    '@next/next/no-html-link-for-pages': 'off',
-    'sort-imports': [
+    'import/no-extraneous-dependencies': [
       'error',
       {
-        ignoreDeclarationSort: true,
-        ignoreCase: true,
+        devDependencies: [
+          '**/*.test.{ts,tsx}',
+          '**/__mocks__/*.{ts,tsx}',
+          'src/test-utils/**/*.{ts,tsx}',
+        ],
       },
     ],
     'import/order': [
@@ -64,18 +70,11 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'react/no-unescaped-entities': 'off',
-    'import/prefer-default-export': 1,
-    'import/no-extraneous-dependencies': [
-      'error',
-      {
-        devDependencies: [
-          '**/*.test.{ts,tsx}',
-          '**/__mocks__/*.{ts,tsx}',
-          'src/test-utils/**/*.{ts,tsx}',
-        ],
-      },
-    ],
+    'import/prefer-default-export': 0,
+    'no-restricted-exports': 0,
+    'no-unused-vars': 'off',
+    'object-curly-newline': 0,
+    'prefer-arrow-callback': 2,
     'react/function-component-definition': [
       2,
       {
@@ -83,5 +82,21 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
+    'react/jsx-key': 'off',
+    'react/jsx-props-no-spreading': 1,
+    'react/no-unescaped-entities': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'sort-imports': [
+      'error',
+      {
+        ignoreDeclarationSort: true,
+        ignoreCase: true,
+      },
+    ],
+    quotes: ['error', 'single', { allowTemplateLiterals: false }],
+  },
+  globals: {
+    JSX: true,
   },
 };
