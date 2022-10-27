@@ -18,7 +18,8 @@ export type State = {
 };
 
 export type Action =
+  | ['clear']
   | ['close']
-  | ['select', { value: string }]
+  | ['fetched', { results: State['results'] }]
   | ['search', { query: State['query'] }]
-  | ['fetched', { results: State['results'] }];
+  | ['select', { value: string }];

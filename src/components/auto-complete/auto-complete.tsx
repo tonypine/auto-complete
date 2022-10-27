@@ -20,6 +20,8 @@ const reducer = (state: State, action: Action) => {
   const [type, data] = action;
 
   switch (type) {
+    case 'clear':
+      return { ...initialState, value: '' };
     case 'close':
       return { ...initialState, value: state.value };
     case 'fetched':
@@ -97,6 +99,7 @@ const AutoComplete = () => {
         className={clsx(open && styles.inputActive)}
         onArrowDown={onInputArrowDown}
         onChange={onChange}
+        onClear={() => dispatch(['clear'])}
         ref={inputRef}
         value={query === null ? value : query}
       />

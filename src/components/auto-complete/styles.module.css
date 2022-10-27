@@ -1,9 +1,39 @@
+.inputWrapper {
+  position: relative;
+}
+
+
+.clearButton {
+  position: absolute;
+  color: #0A2F51;
+  right: 18px;
+  top: 18px;
+  background: none;
+  border: 0;
+  outline: none;
+  padding: 4px 8px;
+  transition: all 0.3s ease-out;
+}
+
+.clearButton:hover,
+.clearButton:focus {
+  background-color: #D4EBCA;
+  outline: none;
+  transition: all 0.1s ease-in;
+}
+
+.clearButton:active {
+  background-color: #ACDCA6;
+  transition: all 0.1s ease-in;
+}
+
 .input {
-  border: 1px solid #333;
+  border: 1px solid #0A2F51;
   border-radius: 4px;
   height: 64px;
+  color: #0A2F51;
   line-height: 62px;
-  padding: 0 24px;
+  padding: 0 48px 0 24px;
   font-size: 16px;
   width: 100%;
   display: block;
@@ -29,6 +59,7 @@
   padding: 12px 0;
   overflow: auto;
   transition: all;
+  line-height: 1.4em;
 }
 
 .optionDropdownLoading * {
@@ -39,17 +70,22 @@
   display: block;
   padding: 4px 24px;
   cursor: pointer;
+  color: #0A2F51;
   border-radius: 0;
   line-height: 1.4em;
   background-color: transparent;
+  outline: none;
   text-align: left;
   width: 100%;
+  border: 0;
 }
 
 .option:hover, .option:focus {
-  background-color: #f2f2f2;
+  background-color: #F3F9EE;
+  border: 0;
 }
 
 .option:focus {
   outline: none;
 }
+

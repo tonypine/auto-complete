@@ -7,11 +7,12 @@ type Props = {
   className: string;
   onArrowDown: () => void;
   onChange: React.ChangeEventHandler;
+  onClear: () => void;
   value: HTMLInputElement['value'];
 };
 
 const TextField = forwardRef<HTMLInputElement, Props>(
-  ({ className, onArrowDown, onChange, value }, ref) => {
+  ({ className, onArrowDown, onChange, onClear, value }, ref) => {
     const onKeyDown = (e: React.KeyboardEvent) => {
       switch (e.code) {
         case 'ArrowDown': {
@@ -24,14 +25,22 @@ const TextField = forwardRef<HTMLInputElement, Props>(
     };
 
     return (
-      <input
-        className={clsx(styles.input, className)}
-        onChange={onChange}
-        onKeyDown={onKeyDown}
-        ref={ref}
-        type="text"
-        value={value}
-      />
+      <div className={styles.inputWrapper}>
+        <input
+          className={clsx(styles.input, className)}
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          placeholder="Search artists"
+          ref={ref}
+          type="text"
+          value={value}
+        />
+        {value && (
+          <button className={styles.clearButton} type="button" onClick={onClear}>
+            clear
+          </button>
+        )}
+      </div>
     );
   }
 );
